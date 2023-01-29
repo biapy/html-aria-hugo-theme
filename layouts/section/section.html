@@ -8,7 +8,7 @@
       {{ range .RegularPagesRecursive.ByDate.Reverse }}
         <a href="{{ .Permalink }}" tabindex="0">
         <section
-          {{ with (index (.Param "images" | default [] ) 0) }}
+          {{ with (index (.Param "images" | default slice ) 0) }}
             data-featured-image="{{ . }}"
           {{ end }}
           title="{{ .Param "description" }}">
