@@ -1,0 +1,10 @@
+{{/*
+    Render a heading with anchor id and anchor character.
+    @see https://gohugo.io/templates/render-hooks/#heading-link-example
+
+    TODO: render anchor only if the current URL it the post URL.
+*/}}
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+    {{ .Text | safeHTML }}
+    <a href="#{{ .Anchor | safeURL }}">¶</a>
+</h{{ .Level }}>
