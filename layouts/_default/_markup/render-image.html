@@ -1,0 +1,17 @@
+{{/*
+    Render the html code for markdown:
+
+    ```md
+    ![Text](https://gohugo.io/images/hugo-logo-wide.svg "Title")
+    ```
+
+    @see https://gohugo.io/templates/render-hooks/#image-markdown-example
+*/}}
+<p class="md__image">
+    <img src="{{ .Destination | safeURL }}"
+        alt="{{ .Text }}"
+        {{ with .Title}}
+            title="{{ . }}"
+        {{ end }}
+    />
+</p>
