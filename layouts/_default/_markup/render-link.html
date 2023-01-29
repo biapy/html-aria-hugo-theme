@@ -1,0 +1,17 @@
+{{/*
+    Render hook for markdown link with title.
+
+    ```md
+    [Text](https://www.gohugo.io "Title")
+    ```
+
+    @see https://gohugo.io/templates/render-hooks/#link-with-title-markdown-example
+*/}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title}}
+        title="{{ . }}"
+    {{ end }}
+    {{ if strings.HasPrefix .Destination "http" }}
+        target="_blank" rel="noopener"
+    {{ end }}>
+    {{- .Text | safeHTML -}}
+</a>
