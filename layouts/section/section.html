@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <article>
+    <section>
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </section>
+    <aside>
+      {{ range .RegularPagesRecursive.ByDate.Reverse }}
+        <a href="{{ .Permalink }}" tabindex="0">
+        <section
+          {{ with (index (.Param "images" | default [] ) 0) }}
+            data-featured-image="{{ . }}"
+          {{ end }}
+          title="{{ .Param "description" }}">
+            <h2>{{ .Title }}</h2>
+            {{ with .Summary }}
+              <div>
+                {{ . }}
+              </div>
+            {{ end }}
+          </section>
+        </a>
+      {{ end }}
+    </aside>
+  </article>
+{{ end }}
