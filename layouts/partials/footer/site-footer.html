@@ -1,0 +1,14 @@
+{{/*
+  Site footer.
+
+  Display copyright, (google)analytics code, etc.
+
+  @see https://gohugo.io/variables/site/
+*/}}
+<footer>
+  {{ block "footer" . }}
+  <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+    <address>France</address>
+    <p class="copyright"><small>{{ .Site.Title }} -- {{ .Site.Copyright }}.</small></p>
+  {{ end }}
+</footer>
