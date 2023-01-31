@@ -1,0 +1,23 @@
+{{/*
+  Generate a site navigation menu using ul & li tags.
+
+  Usage:
+
+  ```html
+  <nav role="menu" aria-label="Header navigation">
+    {{ partial "menu/ul-menu.html" .Site }}
+  </nav>
+  ```
+*/}}
+<ul role="menu">
+  {{ range .Sections }}
+  <li role="menuitem" tabindex="0" aria-label="{{ .Title }}" {{ if .Sections }} aria-haspopup="true"
+    aria-expanded="false" {{ end }} class="{{ .Param "slug" }}">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+
+    {{ if .Sections }}
+      {{ partial "menu/ul-menu.html" . }}
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>
