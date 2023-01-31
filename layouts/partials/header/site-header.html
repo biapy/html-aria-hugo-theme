@@ -1,0 +1,15 @@
+{{/*
+  Site header.
+
+  Display site title (home link), search form and navigation.
+
+  @see https://gohugo.io/variables/site/
+*/}}
+<header>
+  {{ block "header" . }}
+  <h1><a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a></h1>
+  <nav role="menu" aria-label="Header navigation">
+    {{ partial "menu/details-menu.html" .Site }}
+  </nav>
+  {{ end }}
+</header>
