@@ -1,0 +1,16 @@
+{{/*
+  breadcrumbs navigation, based on the code provided by Hugo documentation.
+  @see https://gohugo.io/content-management/sections/
+
+  TODO: see about aria roles.
+*/}}
+<ol class="breadcrumbs">
+  <ul>
+  {{- range .Ancestors.Reverse }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{- end }}
+    <li class="active" aria-current="page">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+  </ul>
+</ol>
