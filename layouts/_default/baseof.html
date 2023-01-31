@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="Author" content="Pierre-Yves Landuré"/>
-      <!-- Blocks may include default content. -->
     <title>{{ block "title" . }}
           {{ .Site.Title }}
     {{ end }}</title>
@@ -12,34 +11,8 @@
     <!--script src="js/scripts.js"></script -->
   </head>
   <body class="{{ printf "section-%s" ( .CurrentSection.Param "slug" ) }}">
-    <header>
-      {{ block "header" . }}
-        <nav role="menu" aria-label="Header navigation">
-          <ul>
-            {{ range .Site.Sections }}
-              <li role="menuitem"
-                  tabindex="0"
-                  aria-label="{{ .Title }}"
-                  {{ if .Sections }}
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  {{ end }}
-                  class="{{ .Param "slug" }}">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-                <ul role="menu">
-                  {{ range .Sections }}
-                    <li role="menuitem"
-                        tabindex="0">
-                      <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    </li>
-                  {{ end }}
-                </ul>
-              </li>
-            {{ end }}
-          </ul>
-        </nav>
-      {{ end }}
-    </header>
+
+    {{ partial "header/site-header.html" . }}
 
     <!-- Code that all your templates share, like a header -->
     <main>
@@ -65,11 +38,7 @@
       </section>
     </div>
 
-    <footer>
-      {{ block "footer" . }}
-      <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
-        <address>7, rue de Béniguet - 29810 Lampaul Plouarzel, France</address>
-      {{ end }}
-    </footer>
+    {{ partial "footer/site-footer.html" . }}
+
   </body>
 </html>
