@@ -1,0 +1,27 @@
+{{/*
+  List of latest pages below this location.
+
+  Use .RegularPagesRecursive to list all pages.
+*/}}
+{{ with .RegularPagesRecursive }}
+  <ul>
+    {{ range .ByDate.Reverse }}
+      <li>
+        <a href="{{ .Permalink }}" tabindex="0">
+          <section
+            {{ with (index (.Param "images" | default slice ) 0) }}
+              data-featured-image="{{ . }}"
+            {{ end }}
+            title="{{ .Param "description" }}">
+            <h2>{{ .Title }}</h2>
+            {{ with .Summary }}
+              <div>
+                {{ . }}
+              </div>
+            {{ end }}
+          </section>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
