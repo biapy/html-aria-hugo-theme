@@ -1,0 +1,36 @@
+{{/*
+  Page in list content view
+
+  @see https://gohugo.io/templates/views/#example-content-view-inside-a-list
+*/}}
+<article class="post"
+  {{ with (index (.Param "images" | default slice ) 0) }}
+    data-featured-image="{{ . }}"
+  {{ end }}
+  >
+  <header>
+    <h2><a href="{{ .Permalink }}" tabindex="0"
+      title="{{ .Param "description" }}"> {{ .Title }}</a></h2>
+    <div class="post-meta">
+      {{ .Date.Format "Mon, Jan 2, 2006" }} - {{ .FuzzyWordCount }} Words
+    </div>
+  </header>
+  {{ .Summary }}
+  <footer>
+    {{ with .GetTerms "topics" }}
+    <ul id="topics">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  {{ with .GetTerms "tags" }}
+    <ul id="tags">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  <a href='{{ .Permalink }}'><nobr>Read more →</nobr></a>
+  </footer>
+</article>
