@@ -7,20 +7,7 @@
   <ul>
     {{ range .ByDate.Reverse }}
       <li>
-        <a href="{{ .Permalink }}" tabindex="0">
-          <section
-            {{ with (index (.Param "images" | default slice ) 0) }}
-              data-featured-image="{{ . }}"
-            {{ end }}
-            title="{{ .Param "description" }}">
-            <h2>{{ .Title }}</h2>
-            {{ with .Summary }}
-              <div>
-                {{ . }}
-              </div>
-            {{ end }}
-          </section>
-        </a>
+        {{ .Render "summary" }}
       </li>
     {{ end }}
   </ul>
