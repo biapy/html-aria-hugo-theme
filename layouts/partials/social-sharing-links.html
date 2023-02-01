@@ -1,0 +1,64 @@
+{{/*
+Social Sharing links
+
+@see https://gist.github.com/markodenic/592f4196623690caf83379f2b33a4c9f
+*/}}
+<menu class="social-sharing">
+  <li>
+    <a class="facebook" tabindex="0" href="https://facebook.com/sharer/sharer.php?u={{ .Permalink | safeURL }}">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="twitter" tabindex="0"
+      href="https://twitter.com/intent/tweet/?text={{ .Title | safeURL }}&url={{ .Permalink | safeURL }}">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="tumblr" tabindex="0"
+      href="https://www.tumblr.com/widgets/share/tool?posttype=link&title={{ .Title | safeURL }}&caption={{ .Permalink | safeURL }}&content={{ .Summary | safeURL }}&canonicalUrl={{ .Permalink | safeURL }}&shareSource=tumblr_share_button">
+      Share on Tumblr
+    </a>
+  </li>
+  <li>
+    <a class="email" tabindex="0" href="mailto:?subject={{ .Title | safeURL }}&body={{ .Summary | safeURL }}">
+      Share via email
+    </a>
+  </li>
+  <li>
+    <a class="pinterest" tabindex="0"
+      {{/* TODO: {yourMediaUrl} needs to be replaced by the featured image. */}}
+      href="https://pinterest.com/pin/create/button/?url={{ .Permalink | safeURL }}&media={yourMediaUrl}&description={{ .Title | safeURL }}">
+      Share on Pinterest
+    </a>
+  </li>
+  <li>
+    <a class="linkedin" tabindex="0"
+      href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | safeURL }}">
+      Share on LinkedIn
+    </a>
+  </li>
+  <li>
+    <a class="reddit" tabindex="0"
+      href="https://reddit.com/submit/?url={{ .Permalink | safeURL }}&title={{ .Title | safeURL }}">
+      Share on Reddit
+    </a>
+  </li>
+  <li>
+    <a class="xing" tabindex="0" href="https://www.xing.com/social/share/spi?url={{ .Permalink | safeURL }}">
+      Share on Xing
+    </a>
+  </li>
+  <li>
+    <a class="whatsapp" tabindex="0" href="https://api.whatsapp.com/send?text={{ .Permalink | safeURL }}">
+      Share on Whatsapp
+    </a>
+  </li>
+  <li>
+    <a class="hackernews" tabindex="0"
+      href="https://news.ycombinator.com/submitlink?u={{ .Permalink | safeURL }}&t={{ .Title | safeURL }}">
+      Share on HackerNews
+    </a>
+  </li>
+</menu>
