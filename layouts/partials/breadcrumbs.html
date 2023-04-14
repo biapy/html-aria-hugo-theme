@@ -2,15 +2,16 @@
   breadcrumbs navigation, based on the code provided by Hugo documentation.
   @see https://gohugo.io/content-management/sections/
 
-  TODO: see about aria roles.
+  BEM naming convention, based on 9elements BEM CSS Cheat Sheet.
+  @see https://bem-cheat-sheet.9elements.com/#breadcrumb
 */}}
-<ol class="breadcrumbs">
-  <ul>
-  {{- range .Ancestors.Reverse }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb__list">
+    {{- range .Ancestors.Reverse }}
+    <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{- end }}
-    <li class="active" aria-current="page">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <li class="breadcrumb__item">
+      <a class="breadcrumb__link" href="{{ .Permalink }}" aria-current="location">{{ .Title }}</a>
     </li>
-  </ul>
-</ol>
+  </ol>
+</nav>
