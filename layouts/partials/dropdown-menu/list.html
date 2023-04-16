@@ -19,8 +19,8 @@
       <a class="dropdown-menu__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
 
       {{ if .Sections }}
-        <div class="dropdown-menu__children section-contents">
-          {{ partial "section-contents/list.html" . }}
+        <div class="dropdown-menu__children">
+          {{ partial "section-contents/section-contents.html" . }}
         </div>
       {{ end }}
 
