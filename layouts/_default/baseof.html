@@ -3,19 +3,31 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="Author" content="Pierre-Yves Landuré"/>
-    <title>{{ block "title" . }}
-          {{ .Site.Title }}
-    {{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="{{ .Permalink }}" />
 
-    <!--link rel="stylesheet" type="text/css" href="style.css"-->
+    <title>
+      {{ block "title" . }}
+          {{ .Site.Title }}
+      {{ end }}
+    </title>
+
+    {{/* @see https://gohugo.io/templates/internal/ */}}
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    {{ partial "head/stylesheets.html" }}
+
     <!--script src="js/scripts.js"></script -->
   </head>
   <body class="{{ printf "section-%s" ( .CurrentSection.Param "slug" ) }}">
-
-    {{ partial "header/site-header.html" . }}
+    {{ partial "accessibility/skip-content-menu.html" }}
+    {{ partial "site-header/site-header.html" . }}
 
     <!-- Code that all your templates share, like a header -->
-    <main>
+    <main id="site-main">
       {{ block "main" . }}
         <!-- The part of the page that begins to differ between templates -->
       {{ end }}
