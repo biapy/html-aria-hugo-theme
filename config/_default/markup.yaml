@@ -1,0 +1,13 @@
+# @see https://gohugo.io/getting-started/configuration-markup/#goldmark
+
+# Code blocks syntax highlighter configuration
+# @see https://gohugo.io/getting-started/configuration-markup/#highlight
+highlight:
+    noClasses: false
+
+# Page table of contents configuration.
+# @ssee https://gohugo.io/getting-started/configuration-markup/#table-of-contents
+tableOfContents:
+  # startLevel: 2
+  ordered: false
+  endLevel: 6

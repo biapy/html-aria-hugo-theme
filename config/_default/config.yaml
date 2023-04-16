@@ -1,0 +1,58 @@
+# HTML Aria Hugo Theme configuration file.
+# @see https://gohugo.io/getting-started/configuration/
+
+baseURL: /
+title: HTML Aria Hugo Theme demo
+theme:
+  - html-aria-hugo-theme
+#  - github.com/razonyang/hugo-theme-bootstrap
+copyright: 'Copyright © 2023 Biapy. Open-source unter MIT license.'
+
+#Content without language indicator will default to this language.
+defaultContentLanguage: en
+
+# Render the default content language in subdir, e.g. content/en/.
+# The site root / will then redirect to /en/.
+# defaultContentLanguageInSubdir: false
+
+# hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
+# defaultContentLanguageInSubdir: true
+# disableLanguages:
+#  - fr
+#  - zh-cn
+#  - zh-tw
+paginate: 10
+# paginatePath: page
+
+# Enable custom robots.txt generation from template.
+# @see https://gohugo.io/templates/robots/
+enableRobotsTXT: true
+
+# Enable emoji shortcodes in Hugo markdown contents.
+# @see https://gohugo.io/functions/emojify/
+# @see https://www.webfx.com/tools/emoji-cheat-sheet/
+enableEmoji: true
+
+# Hugo internal template parameters.
+# @see https://gohugo.io/templates/internal/
+# googleAnalytics: UA-123-45
+# disqusShortname: yourdiscussshortname
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+  authors: authors
+  # os: os
+  # dists: dists
+
+# Configure build.
+# @see https://gohugo.io/getting-started/configuration/#configure-build
+build:
+  writeStats: true
+
+permalinks:
+  posts: /blog/:year/:month/:title/
+
+# module:
+  # proxy: https://goproxy.cn
