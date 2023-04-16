@@ -1,0 +1,18 @@
+<ul class="section-contents__list" role="menu">
+  {{ range .Sections }}
+    <li class="section-contents__item section-contents__item--{{ .Param "slug" }}
+                {{- if .Sections }} section-contents__item--has-children {{- end -}}"
+      role="menuitem" aria-label="{{ .Title }}"
+      {{ if .Sections }} aria-haspopup="true" aria-expanded="false" {{ end }}>
+
+      <a class="section-contents__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
+
+      {{ if .Sections }}
+        <div class="section-contents__children section-contents">
+          {{ partial "section-contents/list.html" . }}
+        </div>
+      {{ end }}
+
+    </li>
+  {{ end }}
+</ul>

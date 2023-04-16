@@ -1,0 +1,46 @@
+{{/*
+  Menus are a powerful but simple feature for content management but can be
+  easily manipulated in your templates to meet your design needs.
+
+  Hugo makes no assumptions about how your rendered HTML will be structured.
+  Instead, it provides all the functions you will need to build your menu
+  however you want.
+
+  @see https://gohugo.io/templates/menu-templates/
+*/}}
+<!-- sidebar start -->
+<aside>
+  <ul>
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+              <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                  <a href="#">
+                      {{ .Pre }}
+                      <span>{{ .Name }}</span>
+                  </a>
+              </li>
+              <ul class="sub-menu">
+                  {{ range .Children }}
+                      <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                          <a href="{{ .URL }}">{{ .Name }}</a>
+                      </li>
+                  {{ end }}
+              </ul>
+          {{ else }}
+              <li>
+                  <a href="{{ .URL }}">
+                      {{ .Pre }}
+                      <span>{{ .Name }}</span>
+                  </a>
+              </li>
+          {{ end }}
+      {{ end }}
+      <li>
+          <a href="#" target="_blank">Hardcoded Link 1</a>
+      </li>
+      <li>
+          <a href="#" target="_blank">Hardcoded Link 2</a>
+      </li>
+  </ul>
+</aside>
