@@ -5,13 +5,13 @@
   BEM naming convention, based on 9elements BEM CSS Cheat Sheet.
   @see https://bem-cheat-sheet.9elements.com/#breadcrumb
 */}}
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <ol class="breadcrumb__list">
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+  <ol class="breadcrumbs__list">
     {{- range .Ancestors.Reverse }}
-    <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{- end }}
-    <li class="breadcrumb__item">
-      <a class="breadcrumb__link" href="{{ .Permalink }}" aria-current="location">{{ .Title }}</a>
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="{{ .Permalink }}" aria-current="location">{{ .Title }}</a>
     </li>
   </ol>
 </nav>
