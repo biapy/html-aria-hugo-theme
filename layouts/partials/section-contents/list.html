@@ -8,7 +8,7 @@
       <a class="section-contents__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
 
       {{ if .Sections }}
-        <div class="section-contents__children section-contents">
+        <div class="section-contents__children section-contents section-contents--column">
           {{ partial "section-contents/list.html" . }}
         </div>
       {{ end }}
