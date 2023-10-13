@@ -9,22 +9,15 @@
 {{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
 {{ define "main" }}
-  <article>
-    <header>
-      <h1>{{ .Title }}</h1>
-      <div class="post-meta">
-        {{ .Date.Format "Mon, Jan 2, 2006" }} - {{ .FuzzyWordCount }} Words
-        {{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} 	                         minutes {{ end }} read
-      </div>
-    </header>
-    <section class="content">
+  <article class="single">
+    {{ partial "content/header.html" . }}
+    <section class="single__content">
       {{ .Content }}
     </section>
-    <footer>
+    <footer class="single__footer">
       {{ partial "social-sharing-links.html" . }}
     </footer>
-  </article>
-  <aside id="meta">
+    <aside class="single_aside" id="meta">
       <div>
       <section>
         <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>
@@ -54,4 +47,6 @@
           {{ end }}
       </div>
   </aside>
+  </article>
+
 {{ end }}
