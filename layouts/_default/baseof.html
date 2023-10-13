@@ -22,12 +22,12 @@
 
     <!--script src="js/scripts.js"></script -->
   </head>
-  <body class="{{ printf "section-%s" ( .CurrentSection.Param "slug" ) }}">
+  <body class="body body--{{ printf "section-%s" ( .CurrentSection.Param "slug" ) }}">
     {{ partial "accessibility/skip-content-menu.html" }}
     {{ partial "site-header/site-header.html" . }}
 
     <!-- Code that all your templates share, like a header -->
-    <main id="site-main">
+    <main id="site-main" class="body__main">
       {{ block "main" . }}
         <!-- The part of the page that begins to differ between templates -->
       {{ end }}
