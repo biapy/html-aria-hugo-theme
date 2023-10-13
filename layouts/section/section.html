@@ -6,14 +6,17 @@
 
   @see https://gohugo.io/templates/section-templates/
 */}}
+{{ define "title" }}
+{{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
 {{ define "main" }}
   <article>
     <section>
-      <h1>{{ .Title }}</h1>
+      {{ partial "content/header.html" . }}
       {{ .Content }}
     </section>
-    <aside>
-      {{ partial "lists/all-latest-pages-list.html" .}}
-    </aside>
   </article>
+  <aside>
+    {{ partial "lists/all-latest-pages-list.html" .}}
+  </aside>
 {{ end }}
