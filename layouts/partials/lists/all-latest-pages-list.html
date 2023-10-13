@@ -4,11 +4,13 @@
   Use .RegularPagesRecursive to list all pages.
 */}}
 {{ with .RegularPagesRecursive }}
-  <ul>
+<div class="directory">
+  <ul class="directory__list">
     {{ range .ByDate.Reverse }}
-      <li>
+      <li class="directory__item">
         {{ .Render "summary" }}
       </li>
     {{ end }}
   </ul>
+</div>
 {{ end }}
