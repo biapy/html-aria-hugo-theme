@@ -1,0 +1,26 @@
+{{/*
+  Render a list of tags for a given `post.GetTerms "tags"`.
+
+  Usage:
+
+  ```html
+  {{ with .GetTerms "tags" }}
+  <div class="post-tags">
+    {{ partial "post/post-tags__list.html" . }}
+  </div>
+  {{ end }}
+  ```
+
+  @author Pierre-Yves LANDURÉ
+  @license MIT
+  @copyright 2023 Biapy
+*/}}
+<ul class="post-tags__list">
+  {{ range . }}
+    <li class="post-tags__item post-tags__item--{{ .Data.Term }}">
+      <a class="post-tags__link" href="{{ .RelPermalink }}">
+        {{- .LinkTitle -}}
+      </a>
+    </li>
+  {{ end }}
+</ul>
