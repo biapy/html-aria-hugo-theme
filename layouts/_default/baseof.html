@@ -18,7 +18,7 @@
     {{ template "_internal/schema.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
 
-    {{ partial "head/stylesheets.html" }}
+    {{ partialCached "head/stylesheets.html" . }}
 
     <!--script src="js/scripts.js"></script -->
   </head>
