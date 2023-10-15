@@ -1,0 +1,21 @@
+{{ range .Sections }}
+  {{ if .Sections }}
+  <li class="collapsible-menu__item collapsible-menu__item--{{ .Param "slug" }} collapsible-menu__item--has-children"
+    role="menuitem" aria-label="{{ .Title }}">
+
+    <details>
+      <summary>
+        <a class="collapsible-menu__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
+      </summary>
+      <ul class="collapsible-menu__collapsible collapsible-menu" role="menu">
+        {{ partial "dropdown-menu/collapsible.html" . }}
+      </ul>
+    </details>
+  </li>
+  {{ else }}
+    <li class="collapsible-menu__item collapsible-menu__item--{{ .Param "slug" }}"
+        role="menuitem" aria-label="{{ .Title }}">
+      <a class="collapsible-menu__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+{{ end }}
