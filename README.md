@@ -2,6 +2,8 @@
 
 A Hugo CSS-less pure HTML5 theme hoping to achieve state-of-the-art HTML5 and ARIA compatibility.
 
+It's based on [daisyUI](https://daisyui.com/) HTML components.
+
 ## Bibliography
 
 ### Hugo
