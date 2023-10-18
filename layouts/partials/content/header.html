@@ -1,5 +1,5 @@
 <header class="single__header">
-  <h1 class="single__title">{{ .Title }}</h1>
+  {{ partial "content/header-hero.html" . }}
   <div class="single__meta">
     {{ partial "post/post-meta.html" . }}
     {{ partial "post/post-tags.html" . }}
