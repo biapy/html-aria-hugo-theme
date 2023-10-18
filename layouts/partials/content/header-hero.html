@@ -1,0 +1,19 @@
+<div class="header-hero">
+
+  {{ with (index (.Param "images" | default slice ) 0) }}
+  <figure class="header-hero__image">
+    <!-- TODO: add alt text for featured images and add galery when several featured image available -->
+    <img src="{{ . }}" alt="post featured image"/>
+  </figure>
+  {{ end }}
+  <div class="header-hero__overlay"></div>
+  <div class="header-hero__content">
+    <div class="header-hero__content-container">
+      <h1 class="header-hero__title">{{ .Title }}</h1>
+      {{ with .Description|default false }}
+        <p class="header-hero__description">{{ . }}</p>
+      {{ end }}
+  </div>
+  </div>
+</div>
+
