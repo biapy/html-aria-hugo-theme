@@ -21,6 +21,15 @@ It's based on [daisyUI](https://daisyui.com/) HTML components.
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.3 @ W3C](https://w3c.github.io/aria/).
 - [ARIA @ Mozilla Developers Network](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA).
 
+## 🛠️ Tech Stack
+
+- [Hugo](https://gohugo.io/)
+
+This theme HTML content is inspired by:
+
+- [daisyUI](https://daisyui.com/).
+- [Tailwind CSS](https://tailwindcss.com/)
+
 ## 🍰 Contributing
 
 Contributions are what make the open source community such an amazing place to
@@ -29,7 +38,8 @@ be learn, inspire, and create. Any contributions you make are
 
 This repository follows
 
-- [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) standard.
+- [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+- [Gitmoji](https://gitmoji.dev/).
 
 This project makes use of:
 
