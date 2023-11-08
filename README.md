@@ -33,7 +33,7 @@ This theme HTML content is inspired by:
 ## 🍰 Contributing
 
 Contributions are what make the open source community such an amazing place to
-be learn, inspire, and create. Any contributions you make are
+be, learn, inspire, and create. Any contributions you make are
 **greatly appreciated**.
 
 This repository follows
@@ -48,10 +48,11 @@ This project makes use of:
 ## 🙇 Acknowledgements
 
 - [Making Tailwind JIT work with Hugo, the Version 3 edition @ brycewray.com](https://www.brycewray.com/posts/2022/03/making-tailwind-jit-work-hugo-version-3-edition/).
+- [Hugo Forum Topic #29161: Splitting an article into multiple pages @ GitHub](https://github.com/jmooring/hugo-testing/tree/hugo-forum-topic-29161).
 
 ### Schema Markup
 
-<!--TODO : create a shortcode / layout for this-->
+<!--TODO: create a shortcode/layout for this-->
 
 - [Schema Markup For Hugo @ Lua Software Code](https://code.luasoftware.com/tutorials/hugo/schema-markup-for-hugo).
 - [Adding Structured Data to your Hugo site @ Dwarkanath Prabhu's dev.to](https://dev.to/pdwarkanath/adding-structured-data-to-your-hugo-site-58db).
@@ -61,5 +62,3 @@ This project makes use of:
 
 - [Diagrams @ Hugo documentation](https://gohugo.io/content-management/diagrams/).
 - [Mermaid homepage](https://mermaid.js.org/).
-
-
