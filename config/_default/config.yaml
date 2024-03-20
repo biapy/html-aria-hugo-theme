@@ -3,8 +3,8 @@
 
 baseURL: /
 title: HTML Aria Hugo Theme demo
-theme:
-  - github.com/biapy/html-aria-hugo-theme
+# theme:
+#   - github.com/biapy/html-aria-hugo-theme
 copyright: 'Copyright © 2023 Biapy. Open-source unter MIT license.'
 
 #Content without language indicator will default to this language.
