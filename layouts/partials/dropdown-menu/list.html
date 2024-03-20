@@ -1,29 +1,42 @@
 {{/*
-  Generate a site navigation menu using ul & li tags.
+Generate a site navigation menu using ul & li tags.
 
-  Usage:
+Usage:
 
-  ```html
-  <nav role="menu" aria-label="Header navigation">
-    {{ partial "main-menu/details.html" .Site }}
-  </nav>
-  ```
+```html
+<nav role="menu" aria-label="Header navigation">
+  { { partial "main-menu/details.html" .Site } }
+</nav>
+```
+
+@see https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/
+
 */}}
-<ul class="dropdown-menu__list" role="menu">
+<ul class="dropdown-menu__list">
   {{ range .Sections }}
-    <li class="dropdown-menu__item dropdown-menu__item--{{ .Param "slug" }}
-                {{- if .Sections }} dropdown-menu__item--has-children {{- end -}}"
-      role="menuitem" aria-label="{{ .Title }}"
-      {{ if .Sections }} aria-haspopup="true" aria-expanded="false" {{ end }}>
-
-      <a class="dropdown-menu__link" tabindex="0" href="{{ .Permalink }}">{{ .Title }}</a>
-
-      {{ if .Sections }}
-        <div class="dropdown-menu__children">
-          {{ partial "section-contents/section-contents.html" . }}
-        </div>
-      {{ end }}
-
+    {{- if .Sections }}
+    <li class="dropdown-menu__item dropdown-menu__item--{{ .Param " slug" }} dropdown-menu__item--has-children"
+      role="menuitem" aria-label="{{ .Title }}" {{ if .Sections }}
+      tabindex="0" aria-haspopup="true" aria-expanded="false" {{ end }}>
+        <details>
+          <summary>
+            <a class="dropdown-menu__link" tabindex="0" href="{{ .Permalink }}">
+              {{ .Title }}
+            </a>
+          </summary>
+          <ul class="dropdown-menu__collapsible collapsible-menu" role="menu">
+            {{ partial "dropdown-menu/collapsible.html" . }}
+          </ul>
+        </details>
+      </li>
     </li>
+    {{- else -}}
+      <li class="dropdown-menu__item dropdown-menu__item--{{ .Param " slug" }}" role="menuitem"
+          aria-label="{{ .Title }}">
+        <a class="dropdown-menu__link" tabindex="0" href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
   {{ end }}
 </ul>

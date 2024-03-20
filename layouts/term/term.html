@@ -6,6 +6,9 @@
 
   @see https://gohugo.io/templates/taxonomy-templates/
 */}}
+{{ define "title" }}
+{{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
 {{ define "main" }}
-  {{ .Render "list" }}
+{{ .Render "list" }}
 {{ end }}

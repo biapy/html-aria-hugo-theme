@@ -7,7 +7,7 @@
 
     @see https://gohugo.io/templates/render-hooks/#link-with-title-markdown-example
 */}}
-<a href="{{ .Destination | safeURL }}"{{ with .Title}}
+<a class="post-link" href="{{ .Destination | safeURL }}"{{ with .Title}}
         title="{{ . }}"
     {{ end }}
     {{ if strings.HasPrefix .Destination "http" }}

@@ -7,19 +7,18 @@ Display site title (home link), search form and navigation.
 */}}
 <header id="site-header" class="site-header" role="banner">
   {{ block "header" . }}
-  <div class="site-header__inner">
-    <div class="site-header__logo">
-      <h1 class="site-header__branding">
-        <a class="site-header__link" href="{{ .Site.Home.Permalink }}">
+    <div class="site-header__inner">
+      <div class="site-header__start">
+        <a class="site-header__branding" href="{{ .Site.Home.Permalink }}">
           {{ .Site.Title }}
         </a>
-      </h1>
+      </div>
+      <div class="site-header__center">
+        {{ partial "dropdown-menu/dropdown-menu.html" . }}
+      </div>
+      <div class="site-header__end">
+        <a class="btn">Button</a>
+      </div>
     </div>
-
-    <div class="site-header__nav">
-      {{ partial "dropdown-menu/dropdown-menu.html" .Site }}
-    </div>
-  </div>
   {{ end }}
 </header>
-

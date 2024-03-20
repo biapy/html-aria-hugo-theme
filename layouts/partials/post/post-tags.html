@@ -1,0 +1,5 @@
+{{ with .GetTerms "tags" }}
+<div class="post-tags">
+  {{ partial "post/post-tags__list.html" . }}
+</div>
+{{ end }}

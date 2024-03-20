@@ -1,0 +1,5 @@
+<ul class="post-meta__list">
+  <li class="post-meta__item post-meta__item--date">{{ .Date.Format "January 2, 2006" }}</li>
+  <li class="post-meta__item post-meta__item--word-count">{{ .FuzzyWordCount }} Words</li>
+  <li class="post-meta__item post-meta__item--reading-time">{{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }} read</li>
+</ul>

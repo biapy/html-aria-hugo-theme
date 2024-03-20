@@ -3,34 +3,55 @@
 
   @see https://gohugo.io/templates/views/#example-content-view-inside-a-list
 */}}
-<article class="post"
+<article class="card"
   {{ with (index (.Param "images" | default slice ) 0) }}
     data-featured-image="{{ . }}"
   {{ end }}
   >
-  <header>
-    <h2><a href="{{ .Permalink }}" tabindex="0"
-      title="{{ .Param "description" }}"> {{ .Title }}</a></h2>
-    <div class="post-meta">
+  <header class="card__header">
+    <h2 class="card__title">
+      <a class="card__link" href="{{ .Permalink }}" tabindex="0"
+        aria-describedby="card-cta-{{ .Param "slug" }}">
+        {{ .Title }}
+      </a>
+    </h2>
+    <h3 class="card__description">
+      {{ .Param "description" }}
+    </h3>
+    <div class="card__meta">
       {{ .Date.Format "Mon, Jan 2, 2006" }} - {{ .FuzzyWordCount }} Words
     </div>
   </header>
+  <div class="card__body">
   {{ .Summary }}
-  <footer>
+  </div>
+  <footer class="card__footer">
     {{ with .GetTerms "topics" }}
-    <ul id="topics">
-      {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{ end }}
-    </ul>
+    <div class="card__topics">
+      <ul class="topics_list">
+        {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
   {{ end }}
-  {{ with .GetTerms "tags" }}
-    <ul id="tags">
-      {{ range . }}
-        <li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>
-      {{ end }}
-    </ul>
+  {{ if .GetTerms "tags" }}
+    <div class="card__tags">
+      {{ partial "post/post-tags.html" . }}
+    </div>
   {{ end }}
-  <a href='{{ .Permalink }}'><nobr>Read more →</nobr></a>
+  <div class="card__actions">
+    <span class="btn btn--principal" aria-hidden="true" id="card-cta-{{ .Param "slug" }}">
+      Read more
+    </span>
+  </div>
   </footer>
+  {{ $title := .Title }}
+  {{ with (index (.Param "images" | default slice ) 0) }}
+    <aside class="card__aside">
+      <figure class="card__figure">
+        <img src="{{ . }}" alt="{{ $title }} featured image" class="card__image">
+      </figure>
+    </aside>
+  {{ end }}
 </article>

@@ -5,7 +5,7 @@ baseURL: /
 title: HTML Aria Hugo Theme demo
 # theme:
 #   - github.com/biapy/html-aria-hugo-theme
-copyright: 'Copyright © 2023 Biapy. Open-source unter MIT license.'
+copyright: "Copyright © 2023 Biapy. Open-source unter MIT license."
 
 #Content without language indicator will default to this language.
 defaultContentLanguage: en
@@ -14,12 +14,6 @@ defaultContentLanguage: en
 # The site root / will then redirect to /en/.
 # defaultContentLanguageInSubdir: false
 
-# hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
-# defaultContentLanguageInSubdir: true
-# disableLanguages:
-#  - fr
-#  - zh-cn
-#  - zh-tw
 paginate: 10
 # paginatePath: page
 
@@ -42,8 +36,6 @@ taxonomies:
   series: series
   tag: tags
   authors: authors
-  # os: os
-  # dists: dists
 
 # Configure build.
 # @see https://gohugo.io/getting-started/configuration/#configure-build
@@ -52,6 +44,3 @@ build:
 
 permalinks:
   posts: /blog/:year/:month/:title/
-
-# module:
-  # proxy: https://goproxy.cn
