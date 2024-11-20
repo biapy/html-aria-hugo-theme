@@ -3,11 +3,7 @@
 
   @see https://gohugo.io/templates/views/#example-content-view-inside-a-list
 */}}
-<article class="card"
-  {{ with (index (.Param "images" | default slice ) 0) }}
-    data-featured-image="{{ . }}"
-  {{ end }}
-  >
+<article class="card">
   <header class="card__header">
     <h2 class="card__title">
       <a class="card__link" href="{{ .Permalink }}" tabindex="0"
@@ -47,11 +43,17 @@
   </div>
   </footer>
   {{ $title := .Title }}
-  {{ with (index (.Param "images" | default slice ) 0) }}
-    <aside class="card__aside">
-      <figure class="card__figure">
-        <img src="{{ . }}" alt="{{ $title }} featured image" class="card__image">
-      </figure>
-    </aside>
-  {{ end }}
+  {{ $featuredImageName :=  (index (.Param "images" | default slice ) 0) -}}
+  {{ if $featuredImageName -}}
+    {{- with ( .Resources.Get $featuredImageName | default ( resources.Get $featuredImageName ) ) -}}
+      {{- $featuredImageThumbnail := ( .Fit "375x250 webp Smart Lanczos" ) -}}
+      <aside class="card__aside">
+        <figure class="card__figure">
+          <img src="{{ $featuredImageThumbnail.Permalink }}" alt="{{ $title }} featured image" class="card__image">
+        </figure>
+      </aside>
+    {{- else -}}
+      Missing image: {{ $featuredImageName }}
+    {{- end -}}
+  {{- end -}}
 </article>
