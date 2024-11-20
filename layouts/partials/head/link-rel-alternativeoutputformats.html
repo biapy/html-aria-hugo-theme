@@ -1,0 +1,10 @@
+{{/*
+
+List output formats for page
+
+@see https://gohugo.io/templates/output-formats/#list-output-formats
+
+*/}}
+{{- range .AlternativeOutputFormats -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{- end -}}
